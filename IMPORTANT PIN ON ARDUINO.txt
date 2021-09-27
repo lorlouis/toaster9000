@@ -1,0 +1,29 @@
+rot encoder : 
+	clock pin 2 
+	dt pin 1
+	sw pin 3
+	+ pin +
+	ground pin ground
+
+pin 4 to relay Magnet (5v)
+
+arduino a3 to a0 -> screen 11 to 14
+
+
+pin 7 to relay toast (120V)
+
+arduino 10 to screen 4
+
+screen 1 to LOW
+
+screen 2 to HIGH
+
+screen 3 to HIGH
+
+screen 5 to LOW
+
+screen 6 to arduino 9
+
+screen 15 220 olms to HIGH
+
+screen 16 to LOW
