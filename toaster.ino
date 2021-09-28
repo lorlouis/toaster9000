@@ -20,9 +20,9 @@
 
 typedef void (*void_fn)(void);
 
-struct preset {
-    unsigned char time;
+struct menu_item {
     char text[15];
+    void *data;
 };
 
 //the screen
@@ -108,11 +108,6 @@ void setup() {
     attachInterrupt(digitalPinToInterrupt(TOAST_PIN), lever_int, RISING);
 }
 
-struct menu_item {
-    char text[15];
-    void *fn;
-};
-
 // 0 no movement -1 back 1 front
 // if timeout_ms is -1 waits indefinitely for a change in direction
 // if break_flag is not 0 it checks if the value it points to becomes not 0
@@ -172,7 +167,7 @@ void_fn display_menu(struct menu_item *menu_items, int nb_items) {
 
         // input
         if(flags & F_BTN_PRESSED) {
-            fn = (void_fn)menu_items[(page*2)+(index % 2)].fn;
+            fn = (void_fn)menu_items[(page*2)+(index % 2)].data;
             flags &= ~F_BTN_PRESSED;
             break;
         }
@@ -248,20 +243,20 @@ void erase_preset(int index) {
     EEPROM.write(pos+15, 0);
 }
 
-void write_preset(struct preset *preset, int index) {
+void write_preset(struct menu_item *preset, int index) {
     int pos = index * 16;
     char *text = preset->text;
     /* mark the slot as "used" */
     EEPROM.write(pos+15, 1);
 
-    EEPROM.write(pos, preset->time);
+    EEPROM.write(pos, (unsigned char)preset->data);
     pos++;
     for(int i = 0; i < 14; i++) {
         EEPROM.write(pos+i, *(text+i));
     }
 }
 
-struct preset* read_preset(struct preset *preset, int index) {
+struct menu_item* read_preset(struct menu_item *preset, int index) {
     int pos = index * 16;
     unsigned char status;
     char *text = preset->text;
@@ -269,7 +264,8 @@ struct preset* read_preset(struct preset *preset, int index) {
     EEPROM.get(pos+15, status);
     if(!(status & 1)) return 0;
     /* read data */
-    EEPROM.get(pos, preset->time);
+    EEPROM.get(pos, status);
+    preset->data = (void*)status;
     pos++;
     for(int i = 0; i < 14; i++) {
         EEPROM.get(pos+i, *(text+i));
@@ -278,13 +274,14 @@ struct preset* read_preset(struct preset *preset, int index) {
 }
 
 void test_preset(void) {
-    struct preset p = {
-        12,
-        "hello world"
+    struct menu_item p = {
+        "hello world",
+        (void*)12,
     };
     write_preset(&p, 0);
 
-    struct preset p2 = {0};
+    struct menu_item p2 = {0};
+
     for(int i = 1; i < 32; i++) {
         erase_preset(i);
     }
@@ -292,36 +289,30 @@ void test_preset(void) {
 
 void test_read_prest(void) {
     Serial.println("hehllo");
-    struct preset p;
+    struct menu_item p;
     int a = 0 != read_preset(&p, 0);
     if(!a) {
         Serial.println("shdfhashf");
         return;
     }
-    Serial.println(p.time);
+    Serial.println((int)p.data);
     Serial.println(p.text);
 }
 
 void load_preset(void) {
-    /* the maximum number of preset 512 / 16 */
-    struct preset presets[32] = {0};
     /* FIXME wasted space */
     struct menu_item menu[33] = {0};
     int nb_presets = 0;
 
     /* populate presets */
     for(int i = 0; i < 32; i++) {
-        if(read_preset(presets+nb_presets, nb_presets)) {
+        if(read_preset(menu+nb_presets, nb_presets)) {
             nb_presets++;
         }
     }
-    /* build a menu */
-    for(int i = 0; i < nb_presets; i++) {
-        strncpy(menu[i].text, presets[i].text, 14);
-        strncpy((char*)&menu[i].fn, (char*)&presets[i].time, 1);
-    }
+
     strncpy(menu[nb_presets].text, "Quit", 5);
-    strncpy((char*)menu[nb_presets].fn, "no", 1);
+    menu[nb_presets].data = (void*)512;
 
     int ret = (int)display_menu(menu, nb_presets+1);
 
