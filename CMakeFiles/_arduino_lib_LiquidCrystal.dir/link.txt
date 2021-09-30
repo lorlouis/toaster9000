@@ -1,0 +1,1 @@
+/home/lor_louis/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-gcc-ar  rcs  lib_arduino_lib_LiquidCrystal.a CMakeFiles/_arduino_lib_LiquidCrystal.dir/usr/share/arduino/libraries/LiquidCrystal/src/LiquidCrystal.cpp.o
