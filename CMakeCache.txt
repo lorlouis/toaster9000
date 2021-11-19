@@ -277,8 +277,8 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 //Path to a program.
 CMAKE_STRIP:FILEPATH=/home/lor_louis/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-strip
 
-//No help, variable specified on the command line.
-CMAKE_TOOLCHAIN_FILE:UNINITIALIZED=../Arduino-CMake-Toolchain/Arduino-toolchain.cmake
+//The CMake toolchain file
+CMAKE_TOOLCHAIN_FILE:FILEPATH=/home/lor_louis/Documents/Projects/C++/Arduino-CMake-Toolchain/Arduino-toolchain.cmake
 
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
@@ -313,28 +313,50 @@ toaster_SOURCE_DIR:STATIC=/home/lor_louis/Documents/Projects/C++/toaster
 ARDUINO_BOARD-STRINGS:INTERNAL=**** Arduino AVR Boards ****;Arduino Yn [avr.yun];Arduino Uno [avr.uno];Arduino Duemilanove or Diecimila [avr.diecimila];Arduino Nano [avr.nano];Arduino Mega or Mega 2560 [avr.mega];Arduino Mega ADK [avr.megaADK];Arduino Leonardo [avr.leonardo];Arduino Leonardo ETH [avr.leonardoeth];Arduino Micro [avr.micro];Arduino Esplora [avr.esplora];Arduino Mini [avr.mini];Arduino Ethernet [avr.ethernet];Arduino Fio [avr.fio];Arduino BT [avr.bt];LilyPad Arduino USB [avr.LilyPadUSB];LilyPad Arduino [avr.lilypad];Arduino Pro or Pro Mini [avr.pro];Arduino NG or older [avr.atmegang];Arduino Robot Control [avr.robotControl];Arduino Robot Motor [avr.robotMotor];Arduino Gemma [avr.gemma];Adafruit Circuit Playground [avr.circuitplay32u4cat];Arduino Yn Mini [avr.yunmini];Arduino Industrial 101 [avr.chiwawa];Linino One [avr.one];Arduino Uno WiFi [avr.unowifi];**** Arduino AVR Boards ****;Arduino Yn [avr.yun];Arduino Uno [avr.uno];Arduino Duemilanove or Diecimila [avr.diecimila];Arduino Nano [avr.nano];Arduino Mega or Mega 2560 [avr.mega];Arduino Mega ADK [avr.megaADK];Arduino Leonardo [avr.leonardo];Arduino Leonardo ETH [avr.leonardoeth];Arduino Micro [avr.micro];Arduino Esplora [avr.esplora];Arduino Mini [avr.mini];Arduino Ethernet [avr.ethernet];Arduino Fio [avr.fio];Arduino BT [avr.bt];LilyPad Arduino USB [avr.LilyPadUSB];LilyPad Arduino [avr.lilypad];Arduino Pro or Pro Mini [avr.pro];Arduino NG or older [avr.atmegang];Arduino Robot Control [avr.robotControl];Arduino Robot Motor [avr.robotMotor];Arduino Gemma [avr.gemma];Adafruit Circuit Playground [avr.circuitplay32u4cat];Arduino Yn Mini [avr.yunmini];Arduino Industrial 101 [avr.chiwawa];Linino One [avr.one];Arduino Uno WiFi [avr.unowifi];**** SparkFun AVR Boards ****;SparkFun RedBoard [avr.RedBoard];SparkFun MaKey MaKey [avr.makeymakey];SparkFun Pro Micro [avr.promicro];SparkFun Fio v3 [avr.fiov3];Qduino Mini [avr.qduinomini];SparkFun Digital Sandbox [avr.digitalsandbox];SparkFun Mega Pro [avr.megapro];SparkFun RedBot [avr.RedBot];SparkFun Serial 7-Segment Display [avr.Serial7Seg];SparkFun ATmega128RFA1 Dev Board [avr.atmega128rfa1];LilyPad USB Plus [avr.LilyPadProtoUSB];SparkFun SerLCD [avr.SerLCD]
 //STRINGS property for variable: ARDUINO_PROGRAMMER
 ARDUINO_PROGRAMMER-STRINGS:INTERNAL=AVR ISP [avr.avrisp];AVRISP mkII [avr.avrispmkii];USBtinyISP [avr.usbtinyisp];ArduinoISP [avr.arduinoisp];ArduinoISP.org [avr.arduinoisporg];USBasp [avr.usbasp];Parallel Programmer [avr.parallel];Arduino as ISP [avr.arduinoasisp];Arduino as ISP (ATmega32U4) [avr.arduinoasispatmega32u4];Arduino Gemma [avr.usbGemma];BusPirate as ISP [avr.buspirate];Atmel STK500 development board [avr.stk500];Atmel JTAGICE3 (ISP mode) [avr.jtag3isp];Atmel JTAGICE3 (JTAG mode) [avr.jtag3];Atmel-ICE (AVR) [avr.atmel_ice];AVR ISP [avr.avrisp];AVRISP mkII [avr.avrispmkii];USBtinyISP [avr.usbtinyisp];ArduinoISP [avr.arduinoisp];ArduinoISP.org [avr.arduinoisporg];USBasp [avr.usbasp];Parallel Programmer [avr.parallel];Arduino as ISP [avr.arduinoasisp];Arduino as ISP (ATmega32U4) [avr.arduinoasispatmega32u4];Arduino Gemma [avr.usbGemma];BusPirate as ISP [avr.buspirate];Atmel STK500 development board [avr.stk500];Atmel JTAGICE3 (ISP mode) [avr.jtag3isp];Atmel JTAGICE3 (JTAG mode) [avr.jtag3];Atmel-ICE (AVR) [avr.atmel_ice]
+//STRINGS property for variable: Arduino(avr.atmegang)/Processor
+Arduino(avr.atmegang)/Processor-STRINGS:INTERNAL=ATmega168;ATmega8
 //Select Arduino Board option "Processor"
 Arduino(avr.atmegang)/Processor:INTERNAL=ATmega168
+//STRINGS property for variable: Arduino(avr.bt)/Processor
+Arduino(avr.bt)/Processor-STRINGS:INTERNAL=ATmega328P;ATmega168
 //Select Arduino Board option "Processor"
 Arduino(avr.bt)/Processor:INTERNAL=ATmega328P
+//STRINGS property for variable: Arduino(avr.diecimila)/Processor
+Arduino(avr.diecimila)/Processor-STRINGS:INTERNAL=ATmega328P;ATmega168
 //Select Arduino Board option "Processor"
 Arduino(avr.diecimila)/Processor:INTERNAL=ATmega328P
+//STRINGS property for variable: Arduino(avr.lilypad)/Processor
+Arduino(avr.lilypad)/Processor-STRINGS:INTERNAL=ATmega328P;ATmega168
 //Select Arduino Board option "Processor"
 Arduino(avr.lilypad)/Processor:INTERNAL=ATmega328P
+//STRINGS property for variable: Arduino(avr.mega)/Processor
+Arduino(avr.mega)/Processor-STRINGS:INTERNAL=ATmega2560 (Mega 2560);ATmega1280
 //Select Arduino Board option "Processor"
 Arduino(avr.mega)/Processor:INTERNAL=ATmega2560 (Mega 2560)
+//STRINGS property for variable: Arduino(avr.megapro)/Processor
+Arduino(avr.megapro)/Processor-STRINGS:INTERNAL=ATmega2560 (3.3V / 8 MHz);ATmega2560 (5V / 16 MHz)
 //Select Arduino Board option "Processor"
 Arduino(avr.megapro)/Processor:INTERNAL=ATmega2560 (3.3V / 8 MHz)
+//STRINGS property for variable: Arduino(avr.mini)/Processor
+Arduino(avr.mini)/Processor-STRINGS:INTERNAL=ATmega328P;ATmega168
 //Select Arduino Board option "Processor"
 Arduino(avr.mini)/Processor:INTERNAL=ATmega328P
+//STRINGS property for variable: Arduino(avr.nano)/Processor
+Arduino(avr.nano)/Processor-STRINGS:INTERNAL=ATmega328P;ATmega328P (Old Bootloader);ATmega168
 //Select Arduino Board option "Processor"
 Arduino(avr.nano)/Processor:INTERNAL=ATmega328P
+//STRINGS property for variable: Arduino(avr.pro)/Processor
+Arduino(avr.pro)/Processor-STRINGS:INTERNAL=ATmega328P (5V, 16 MHz);ATmega328P (3.3V, 8 MHz);ATmega168 (5V, 16 MHz);ATmega168 (3.3V, 8 MHz)
 //Select Arduino Board option "Processor"
 Arduino(avr.pro)/Processor:INTERNAL=ATmega328P (5V, 16 MHz)
+//STRINGS property for variable: Arduino(avr.promicro)/Processor
+Arduino(avr.promicro)/Processor-STRINGS:INTERNAL=ATmega32U4 (3.3V, 8 MHz);ATmega32U4 (5V, 16 MHz)
 //Select Arduino Board option "Processor"
 Arduino(avr.promicro)/Processor:INTERNAL=ATmega32U4 (3.3V, 8 MHz)
 //ADVANCED property for variable: CMAKE_ADDR2LINE
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_AR
+CMAKE_AR-ADVANCED:INTERNAL=1
 CMAKE_AR:INTERNAL=/home/lor_louis/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-gcc-ar
 //ADVANCED property for variable: CMAKE_ASM_COMPILER_AR
 CMAKE_ASM_COMPILER_AR-ADVANCED:INTERNAL=1
@@ -358,7 +380,7 @@ CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
 CMAKE_CACHE_MINOR_VERSION:INTERNAL=21
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=3
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=4
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
@@ -487,5 +509,5 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 _LAST_USED_ARDUINO_BOARD_OPTIONS_FILE:INTERNAL=/home/lor_louis/Documents/Projects/C++/toaster/BoardOptions.cmake
-_LAST_USED_ARDUINO_BOARD_OPTIONS_FILE_TS:INTERNAL=2021-09-28T11:52:01
+_LAST_USED_ARDUINO_BOARD_OPTIONS_FILE_TS:INTERNAL=2021-11-19T10:09:43
 

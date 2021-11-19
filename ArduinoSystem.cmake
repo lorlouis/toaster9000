@@ -4,7 +4,7 @@ set(ARDUINO_INSTALL_PATH "/usr/share/arduino")
 set(ARDUINO_PACKAGE_PATH "/home/lor_louis/.arduino15")
 set(ARDUINO_SKETCHBOOK_PATH "/home/lor_louis/Arduino")
 
-set(ARDUINO "108013")
+set(ARDUINO "108016")
 set("ARDUINO_ARCH_AVR" TRUE)
 set("ARDUINO_AVR_LEONARDO" TRUE)
 
@@ -26,9 +26,9 @@ set(ARDUINO_PROGRAMMER_ID "")
 set(ARDUINO_PROGRAMMER_NAME "")
 
 set(ARDUINO_RULE_NAMES_LIST "recipe.c.o.pattern;recipe.cpp.o.pattern;recipe.S.o.pattern;recipe.ar.pattern;recipe.c.combine.pattern;recipe.objcopy.eep.pattern;recipe.objcopy.hex.pattern;recipe.size.pattern;tools.avrdude.upload.network_pattern;tools.avrdude.upload.pattern;tools.avrdude.program.pattern;tools.avrdude.erase.pattern;tools.avrdude.bootloader.pattern;tools.avrdude_remote.upload.pattern")
-set("ARDUINO_RULE_recipe.c.o.pattern" "\"/home/lor_louis/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-gcc\" -c -g -Os -w -std=gnu11 -ffunction-sections -fdata-sections -MMD -flto -fno-fat-lto-objects -mmcu=atmega32u4 -DF_CPU=16000000L -DARDUINO=108013 -DARDUINO_AVR_LEONARDO -DARDUINO_ARCH_AVR  -DUSB_VID=0x2341 -DUSB_PID=0x8036 '-DUSB_MANUFACTURER=\"Unknown\"' '-DUSB_PRODUCT=\"Arduino Leonardo\"' {includes} \"{source_file}\" -o \"{object_file}\"")
-set("ARDUINO_RULE_recipe.cpp.o.pattern" "\"/home/lor_louis/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-g++\" -c -g -Os -w -std=gnu++11 -fpermissive -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -Wno-error=narrowing -MMD -flto -mmcu=atmega32u4 -DF_CPU=16000000L -DARDUINO=108013 -DARDUINO_AVR_LEONARDO -DARDUINO_ARCH_AVR  -DUSB_VID=0x2341 -DUSB_PID=0x8036 '-DUSB_MANUFACTURER=\"Unknown\"' '-DUSB_PRODUCT=\"Arduino Leonardo\"' {includes} \"{source_file}\" -o \"{object_file}\"")
-set("ARDUINO_RULE_recipe.S.o.pattern" "\"/home/lor_louis/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-gcc\" -c -g -x assembler-with-cpp -flto -MMD -mmcu=atmega32u4 -DF_CPU=16000000L -DARDUINO=108013 -DARDUINO_AVR_LEONARDO -DARDUINO_ARCH_AVR  -DUSB_VID=0x2341 -DUSB_PID=0x8036 '-DUSB_MANUFACTURER=\"Unknown\"' '-DUSB_PRODUCT=\"Arduino Leonardo\"' {includes} \"{source_file}\" -o \"{object_file}\"")
+set("ARDUINO_RULE_recipe.c.o.pattern" "\"/home/lor_louis/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-gcc\" -c -g -Os -w -std=gnu11 -ffunction-sections -fdata-sections -MMD -flto -fno-fat-lto-objects -mmcu=atmega32u4 -DF_CPU=16000000L -DARDUINO=108016 -DARDUINO_AVR_LEONARDO -DARDUINO_ARCH_AVR  -DUSB_VID=0x2341 -DUSB_PID=0x8036 '-DUSB_MANUFACTURER=\"Unknown\"' '-DUSB_PRODUCT=\"Arduino Leonardo\"' {includes} \"{source_file}\" -o \"{object_file}\"")
+set("ARDUINO_RULE_recipe.cpp.o.pattern" "\"/home/lor_louis/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-g++\" -c -g -Os -w -std=gnu++11 -fpermissive -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -Wno-error=narrowing -MMD -flto -mmcu=atmega32u4 -DF_CPU=16000000L -DARDUINO=108016 -DARDUINO_AVR_LEONARDO -DARDUINO_ARCH_AVR  -DUSB_VID=0x2341 -DUSB_PID=0x8036 '-DUSB_MANUFACTURER=\"Unknown\"' '-DUSB_PRODUCT=\"Arduino Leonardo\"' {includes} \"{source_file}\" -o \"{object_file}\"")
+set("ARDUINO_RULE_recipe.S.o.pattern" "\"/home/lor_louis/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-gcc\" -c -g -x assembler-with-cpp -flto -MMD -mmcu=atmega32u4 -DF_CPU=16000000L -DARDUINO=108016 -DARDUINO_AVR_LEONARDO -DARDUINO_ARCH_AVR  -DUSB_VID=0x2341 -DUSB_PID=0x8036 '-DUSB_MANUFACTURER=\"Unknown\"' '-DUSB_PRODUCT=\"Arduino Leonardo\"' {includes} \"{source_file}\" -o \"{object_file}\"")
 set("ARDUINO_RULE_recipe.ar.pattern" "\"/home/lor_louis/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-gcc-ar\" rcs  \"{build.path}/{archive_file}\" \"{object_file}\"")
 set("ARDUINO_RULE_recipe.c.combine.pattern" "\"/home/lor_louis/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-gcc\" -w -Os -g -flto -fuse-linker-plugin -Wl,--gc-sections -mmcu=atmega32u4   -o \"{build.path}/{build.project_name}.elf\" {object_files}  \"{build.path}/{archive_file}\" \"-L{build.path}\" -lm")
 set("ARDUINO_RULE_recipe.objcopy.eep.pattern" "\"/home/lor_louis/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-objcopy\" -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0  \"{build.path}/{build.project_name}.elf\" \"{build.path}/{build.project_name}.eep\"")
@@ -44,17 +44,17 @@ set("ARDUINO_RULE_tools.avrdude_remote.upload.pattern" "/usr/bin/run-avrdude /tm
 
 
 set(CMAKE_C_COMPILER "/home/lor_louis/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-gcc")
-set(CMAKE_C_COMPILE_OBJECT "<CMAKE_C_COMPILER>  -c -g -Os -w -std=gnu11 -ffunction-sections -fdata-sections -MMD -flto -fno-fat-lto-objects -mmcu=atmega32u4 -DF_CPU=16000000L -DARDUINO=108013 -DARDUINO_AVR_LEONARDO -DARDUINO_ARCH_AVR  -DUSB_VID=0x2341 -DUSB_PID=0x8036 \"-DUSB_MANUFACTURER=\\\"Unknown\\\"\" \"-DUSB_PRODUCT=\\\"Arduino Leonardo\\\"\" <DEFINES> <INCLUDES> <FLAGS> <SOURCE> -o <OBJECT>")
+set(CMAKE_C_COMPILE_OBJECT "<CMAKE_C_COMPILER>  -c -g -Os -w -std=gnu11 -ffunction-sections -fdata-sections -MMD -flto -fno-fat-lto-objects -mmcu=atmega32u4 -DF_CPU=16000000L -DARDUINO=108016 -DARDUINO_AVR_LEONARDO -DARDUINO_ARCH_AVR  -DUSB_VID=0x2341 -DUSB_PID=0x8036 \"-DUSB_MANUFACTURER=\\\"Unknown\\\"\" \"-DUSB_PRODUCT=\\\"Arduino Leonardo\\\"\" <DEFINES> <INCLUDES> <FLAGS> <SOURCE> -o <OBJECT>")
 set(CMAKE_C_LINK_EXECUTABLE "<CMAKE_C_COMPILER>  -w -Os -g -flto -fuse-linker-plugin -Wl,--gc-sections -mmcu=atmega32u4   -o <TARGET> <OBJECTS> <LINK_LIBRARIES>   -L/home/lor_louis/Documents/Projects/C++/toaster -lm")
 set(CMAKE_C_CREATE_STATIC_LIBRARY "<CMAKE_AR>  rcs  <TARGET> <LINK_FLAGS> <OBJECTS>")
 
 set(CMAKE_CXX_COMPILER "/home/lor_louis/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-g++")
-set(CMAKE_CXX_COMPILE_OBJECT "<CMAKE_CXX_COMPILER>  -c -g -Os -w -std=gnu++11 -fpermissive -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -Wno-error=narrowing -MMD -flto -mmcu=atmega32u4 -DF_CPU=16000000L -DARDUINO=108013 -DARDUINO_AVR_LEONARDO -DARDUINO_ARCH_AVR  -DUSB_VID=0x2341 -DUSB_PID=0x8036 \"-DUSB_MANUFACTURER=\\\"Unknown\\\"\" \"-DUSB_PRODUCT=\\\"Arduino Leonardo\\\"\" <DEFINES> <INCLUDES> <FLAGS> <SOURCE> -o <OBJECT>")
+set(CMAKE_CXX_COMPILE_OBJECT "<CMAKE_CXX_COMPILER>  -c -g -Os -w -std=gnu++11 -fpermissive -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -Wno-error=narrowing -MMD -flto -mmcu=atmega32u4 -DF_CPU=16000000L -DARDUINO=108016 -DARDUINO_AVR_LEONARDO -DARDUINO_ARCH_AVR  -DUSB_VID=0x2341 -DUSB_PID=0x8036 \"-DUSB_MANUFACTURER=\\\"Unknown\\\"\" \"-DUSB_PRODUCT=\\\"Arduino Leonardo\\\"\" <DEFINES> <INCLUDES> <FLAGS> <SOURCE> -o <OBJECT>")
 set(CMAKE_CXX_LINK_EXECUTABLE "<CMAKE_CXX_COMPILER>  -w -Os -g -flto -fuse-linker-plugin -Wl,--gc-sections -mmcu=atmega32u4   -o <TARGET> <OBJECTS> <LINK_LIBRARIES>   -L/home/lor_louis/Documents/Projects/C++/toaster -lm")
 set(CMAKE_CXX_CREATE_STATIC_LIBRARY "<CMAKE_AR>  rcs  <TARGET> <LINK_FLAGS> <OBJECTS>")
 
 set(CMAKE_ASM_COMPILER "/home/lor_louis/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-gcc")
-set(CMAKE_ASM_COMPILE_OBJECT "<CMAKE_ASM_COMPILER>  -c -g -x assembler-with-cpp -flto -MMD -mmcu=atmega32u4 -DF_CPU=16000000L -DARDUINO=108013 -DARDUINO_AVR_LEONARDO -DARDUINO_ARCH_AVR  -DUSB_VID=0x2341 -DUSB_PID=0x8036 \"-DUSB_MANUFACTURER=\\\"Unknown\\\"\" \"-DUSB_PRODUCT=\\\"Arduino Leonardo\\\"\" <DEFINES> <INCLUDES> <FLAGS> <SOURCE> -o <OBJECT>")
+set(CMAKE_ASM_COMPILE_OBJECT "<CMAKE_ASM_COMPILER>  -c -g -x assembler-with-cpp -flto -MMD -mmcu=atmega32u4 -DF_CPU=16000000L -DARDUINO=108016 -DARDUINO_AVR_LEONARDO -DARDUINO_ARCH_AVR  -DUSB_VID=0x2341 -DUSB_PID=0x8036 \"-DUSB_MANUFACTURER=\\\"Unknown\\\"\" \"-DUSB_PRODUCT=\\\"Arduino Leonardo\\\"\" <DEFINES> <INCLUDES> <FLAGS> <SOURCE> -o <OBJECT>")
 
 # Need to include this in cache as plain setting of this variable is
 # overwritten when marking it as advanced (This is fixed only in CMake 3.13.0)

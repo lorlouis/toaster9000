@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <Encoder.h>
 #include <EEPROM.h>
+
 //Lib for OLED screen
 #include <LiquidCrystal.h>
 
@@ -9,6 +10,10 @@
 
 // debounce time in ms
 #define DEBOUNCE_TIME 250
+
+#define INPUT_TIMEOUT 2000
+
+#define DEFAULT_TOAST_TIME 120
 
 #define CUSTOM_CHAR_ARR_UP (byte)1
 #define CUSTOM_CHAR_ARR_DOWN (byte)3
@@ -121,8 +126,6 @@ void lever_int(void) {
 }
 
 void setup() {
-    Serial.begin(9600);
-    Serial.println("Basic Encoder Test:");
     pinMode(BTN_PIN, INPUT_PULLUP);
     pinMode(TOAST_PIN, INPUT_PULLUP);
     pinMode(MAGNET_PIN, OUTPUT);
@@ -130,7 +133,6 @@ void setup() {
     digitalWrite(8, HIGH);
     // display stuff
     screen.begin(SCREEN_X_SIZE, SCREEN_Y_SIZE);
-
     screen.createChar(CUSTOM_CHAR_ARR_UP, customchars[0]);
     screen.createChar(CUSTOM_CHAR_ARR_DOWN, customchars[1]);
     screen.createChar(CUSTOM_CHAR_END, customchars[2]);
@@ -139,10 +141,8 @@ void setup() {
     delay(50);
 
     screen.setCursor(0, 0);
-
     screen.print("Hello, World!");
     delay(1000);
-
     // set the interrupts on the btn and the lever
     attachInterrupt(digitalPinToInterrupt(BTN_PIN), btn_int, FALLING);
 
@@ -279,7 +279,7 @@ void toast(unsigned char time) {
 }
 
 void make_toast(void) {
-    int time = get_time(90, F_BTN_PRESSED | F_LEVER_PRESSED);
+    int time = get_time(DEFAULT_TOAST_TIME, F_BTN_PRESSED | F_LEVER_PRESSED);
 
     if(flags & F_LEVER_PRESSED && !(flags & F_BTN_PRESSED)) {
         UNSET_FLAG(F_BTN_PRESSED | F_LEVER_PRESSED);
@@ -299,7 +299,7 @@ void write_preset(struct menu_item *preset, int index) {
     /* mark the slot as "used" */
     EEPROM.write(pos+15, 1);
 
-    /* clang I know, stop complaining */
+    /* clang, I know, stop complaining */
     EEPROM.write(pos, (unsigned char)preset->data);
     pos++;
     for(int i = 0; i < SCREEN_X_SIZE-2; i++) {
@@ -352,7 +352,7 @@ int display_preset_selection(void) {
     /* populate presets */
     for(int i = 0; i < NB_PRESETS_SLOTS; i++) {
         if(read_preset(menu+nb_presets, i)) {
-            menu[nb_presets].data = (void*)nb_presets;
+            menu[nb_presets].data = (void*)i;
             nb_presets++;
         }
     }
@@ -466,14 +466,14 @@ struct menu_item* fill_preset(struct menu_item *preset) {
 
     SCREEN_CENTER_STRLIT("Enter name", 0);
     flags &= ~(F_BTN_PRESSED | F_LEVER_PRESSED);
-    wheel_dir(2000, (F_BTN_PRESSED | F_LEVER_PRESSED));
+    wheel_dir(INPUT_TIMEOUT, (F_BTN_PRESSED | F_LEVER_PRESSED));
     flags &= ~(F_BTN_PRESSED | F_LEVER_PRESSED);
 
     if(!enter_str(preset->text, MENU_ITEM_TEXT_SIZE)) {
         SCREEN_CENTER_STRLIT("Invalid name", 0);
         /* wait for input or 2 sec */
         flags &= ~(F_BTN_PRESSED | F_LEVER_PRESSED);
-        wheel_dir(2000, (F_BTN_PRESSED | F_LEVER_PRESSED));
+        wheel_dir(INPUT_TIMEOUT, (F_BTN_PRESSED | F_LEVER_PRESSED));
         flags &= ~(F_BTN_PRESSED | F_LEVER_PRESSED);
         return 0;
     }
@@ -482,10 +482,10 @@ struct menu_item* fill_preset(struct menu_item *preset) {
     SCREEN_CENTER_STRLIT("Enter time", 0);
 
     UNSET_FLAG(F_BTN_PRESSED | F_LEVER_PRESSED);
-    wheel_dir(2000, (F_BTN_PRESSED | F_LEVER_PRESSED));
+    wheel_dir(INPUT_TIMEOUT, (F_BTN_PRESSED | F_LEVER_PRESSED));
 
     UNSET_FLAG(F_BTN_PRESSED | F_LEVER_PRESSED);
-    time = get_time(90, F_BTN_PRESSED);
+    time = get_time(DEFAULT_TOAST_TIME, F_BTN_PRESSED);
     UNSET_FLAG(F_BTN_PRESSED);
 
     preset->data = (void*)time;
@@ -506,7 +506,7 @@ void create_preset(void) {
     if(index == -1) {
         SCREEN_CENTER_STRLIT("No space left", 0);
         UNSET_FLAG(F_BTN_PRESSED);
-        wheel_dir(2000, F_BTN_PRESSED);
+        wheel_dir(INPUT_TIMEOUT, F_BTN_PRESSED);
         UNSET_FLAG(F_BTN_PRESSED);
         return;
     }

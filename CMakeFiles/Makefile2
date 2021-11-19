@@ -217,10 +217,10 @@ CMakeFiles/_arduino_lib_core.dir/clean:
 # Target rules for target CMakeFiles/toaster.dir
 
 # All Build rule for target.
-CMakeFiles/toaster.dir/all: CMakeFiles/_arduino_lib_LiquidCrystal.dir/all
 CMakeFiles/toaster.dir/all: CMakeFiles/_arduino_lib_Encoder.dir/all
-CMakeFiles/toaster.dir/all: CMakeFiles/_arduino_lib_EEPROM.dir/all
 CMakeFiles/toaster.dir/all: CMakeFiles/_arduino_lib_core.dir/all
+CMakeFiles/toaster.dir/all: CMakeFiles/_arduino_lib_EEPROM.dir/all
+CMakeFiles/toaster.dir/all: CMakeFiles/_arduino_lib_LiquidCrystal.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/toaster.dir/build.make CMakeFiles/toaster.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/toaster.dir/build.make CMakeFiles/toaster.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lor_louis/Documents/Projects/C++/toaster/CMakeFiles --progress-num=33,34 "Built target toaster"
